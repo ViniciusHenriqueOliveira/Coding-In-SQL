@@ -14,7 +14,7 @@
 
 ###
 
-h2 align="left"> Laboratório de Banco de Dados</h2>
+<h2 align="left"> Laboratório de Banco de Dados </h2>
 
 ###
 
