@@ -19,7 +19,7 @@
 ###
 
 - [Modelo Entidade Relacionamento](Banco-de-Dados/DER)
-- [Modelo Relacional](Banco-de-Dados/Exercício1)
+- [Modelo Relacional](Banco-de-Dados/Exercício2/Exercício2MR.pdf)
 - [SQL, utilizando o Oracle Live SQL](Banco-de-Dados/Exercício2/Exercício2.sql)
 - Algebra Relacional
 
