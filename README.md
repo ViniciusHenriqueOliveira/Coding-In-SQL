@@ -17,7 +17,7 @@
 [Modelo Entidade Relacionamento](Banco-de-Dados/DER)<br>
 [Modelo Relacional](Banco-de-Dados)<br>
 [Criação de tabela em SQL, utilizando o Oracle Live SQL](Banco-de-Dados)<br>
-Algebra Relacional<br>
+Álgebra Relacional<br>
 
 ### 
 
