@@ -25,7 +25,7 @@ Algebra Relacional<br>
 
 ### 
 
-<h1 align="left"> Laboratório de Banco de Dados </h1>
+<h1 align="left"> Laboratório de Banco de Dados </h1>  
 
 ###
 
@@ -39,15 +39,29 @@ Algebra Relacional<br>
 ###
 
 Instruções SQL<br>
-- Instruções de consultas:
-- Instruções DML(Data Manipulation Language)
-- Instruções DDL(Data Definition Language)
-- Instruções TC(Transaction Control)
-- Instruções DCL(Data Control Language)
+- Instruções de consultas:<br>
+Recuperam linhas armazenadas nas tabelas<br>
+Comando *SELECT*<br><br>
+- Instruções DML(Data Manipulation Language)<br>
+Modificam o conteúdo das tabelas<br><br>
+- Instruções DDL(Data Definition Language):<br>
+Utilizada para criar objetos e estruturas<br>
+Exemplo de Sintaxe: *Create USER nome_usuário IDENTIFIED BY senha*<br><br>
+- Instruções TC(Transaction Control)<br>
+Registram permanentemente as alterações feitas nos dados ou, desfazem essas alterações<br><br>
+- Instruções DCL(Data Control Language)<br>
+Utilizada para atribuir permissões para o usuário<br>
+Exemplo de Sintaxe: *GRANT connet, resource TO nome_usuário<br>
 
-Modelo Relacional<br>
-SQL, utilizando o Oracle Live SQL<br>
-Algebra Relacional<br>
+Tipos de Dados(Oracle)<br>
+char(comprimento), varchar2(comprimento), date, integer, number(precisão, escala), binary_float, binary_double)<br>
+
+Características de um Esquema Lógico<br>
+Por meio de um esquema lógico, analisar e compreender conexões entre tabelas<br>
+![Logical Database Model](https://github.com/user-attachments/assets/eebe6401-06b6-4429-acbc-d4509633eaa8)
+
+Criação de objetos(tabelas)<br>
+
 
 ###
 
