@@ -14,13 +14,13 @@
 
 ###
 
-<p align="left"> Conceitos abordados C</h1>
+<p align="left"> Conceitos abordados:</h1>
 
 ###
 
 - [Modelo Entidade Relacionamento](Banco-de-Dados/DER)
-- Modelo Relacional
-- SQL, utilizando o Oracle Live SQL
+- [Modelo Relacional](Banco-de-Dados/Exercício1)
+- [SQL, utilizando o Oracle Live SQL](Banco-de-Dados/Exercício2/Exercício2.sql)
 - Algebra Relacional
 
 ###
@@ -30,7 +30,7 @@
 
 ###
 
-<p align="left">... </p>
+<p align="left"> https://github.com/ViniciusHenriqueOliveira/Coding-In-SQL/tree/main/Laborat%C3%B3rio-de-Banco-de-Dados </p>
 
 
 
