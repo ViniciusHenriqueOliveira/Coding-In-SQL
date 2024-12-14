@@ -14,6 +14,18 @@
 
 ###
 
+<p align="left"> Conceitos abordados C</h1>
+
+###
+
+- [Modelo Entidade Relacionamento](Banco-de-Dados/DER)
+- Modelo Relacional
+- SQL, utilizando o Oracle Live SQL
+- Algebra Relacional
+
+###
+
+
 <h2 align="left"> Laboratório de Banco de Dados </h2>
 
 ###
