@@ -107,7 +107,7 @@ Funções Simples<br>
 - Funções de Caracteres<br><br>
 - Funções Numéricas<br><br>
 - Funções de Conversão<br><br>
-- Funções de Expressão Regular<br><br>
+- Funções de Expressão Regular<br>
 
 Funções Agregadas<br>
 
