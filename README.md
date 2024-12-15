@@ -29,7 +29,11 @@
 
 ###
 
-<p align="left"> SQL Developer foi a interface gráfica utilizada nesta disciplina, afinal é um ambiente de desenvolvimento que permite inserir instruções SQL, examinar tabelas, executar scripts, editar/depurar códigos PL/SQL, entres outras funções...   </p>
+<p align="left"> SQL Developer foi a interface gráfica utilizada nesta disciplina, afinal é um ambiente de desenvolvimento que permite inserir instruções SQL, examinar tabelas, executar scripts, editar/depurar códigos PL/SQL, entres outras funções...</p>
+
+###
+
+<p align="left">Versão do Oracle mais recente foi usada: Oracle Database 23ai (14/12/2024)</p>
 
 ###
 
@@ -51,7 +55,7 @@ Exemplo de Sintaxe: *Create USER nome_usuário IDENTIFIED BY senha*<br><br>
 Registram permanentemente as alterações feitas nos dados ou, desfazem essas alterações<br><br>
 - Instruções DCL(Data Control Language)<br>
 Utilizada para atribuir permissões para o usuário<br>
-Exemplo de Sintaxe: *GRANT connet, resource TO nome_usuário<br>
+Exemplo de Sintaxe: *GRANT connet, resource TO nome_usuário*<br>
 
 Tipos de Dados(Oracle)<br>
 char(comprimento), varchar2(comprimento), date, integer, number(precisão, escala), binary_float, binary_double)<br>
@@ -62,6 +66,54 @@ Por meio de um esquema lógico, analisar e compreender conexões entre tabelas<b
 
 Criação de objetos(tabelas)<br>
 
+Inserção de linhas/tuplas<br>
+
+Alteração de linhas/tuplas<br>
+
+PL/SQL<br>
+
+Orderm de execução de uma *Querie*<br>
+![QueryExecutionOrder](https://github.com/user-attachments/assets/8c145952-8e94-43c7-b314-e554c62eb9cc)
+
+Identificadores de Linha<br>
+
+Números de Linha<br>
+
+Cálculos Aritméticos<br>
+
+Tabela *Dual*<br>
+
+Apelido(*Alias*)<br>
+
+Concatenação<br>
+
+Valores Nulos(*NULL*)<br>
+
+Linhas Distintas(*Distinct/)<br>
+
+Comparação de Valores<br>
+
+Operadores SQL<br>
+
+Cláusula ORDER BY<br>
+
+JOINs<br>
+
+Variáveis<br>
+
+Relatórios Simples<br>
+
+Funções Simples<br>
+- Funções de Caracteres<br><br>
+- Funções Numéricas<br><br>
+- Funções de Conversão<br><br>
+- Funções de Expressão Regular<br><br>
+
+Funções Agregadas<br>
+
+GROUP BY<br>
+
+Manipulação de Datas e Horas
 
 ###
 
