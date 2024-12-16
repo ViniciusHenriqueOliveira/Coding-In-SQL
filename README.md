@@ -21,6 +21,7 @@
 [Criação de tabela em SQL, utilizando o Oracle Live SQL](Banco-de-Dados)<br>
 
 Álgebra Relacional<br>
+![cheatsheet-algebra-relacional](https://github.com/user-attachments/assets/2d322c32-5c1a-4f97-ae35-3ab6a7cba433)
 
 ### 
 
@@ -487,16 +488,76 @@ UNDEFINE v_id_produto;<br>
 </pre>
 
 **Funções Simples**<br>
-- Funções de Caracteres<br><br>
-- Funções Numéricas<br><br>
-- Funções de Conversão<br><br>
+- Funções de Caracteres<br>
+Manipulam strings de caracteres<br>
+
+- Funções Numéricas<br>
+Efetuam cálculos<br>
+
+- Funções de Conversão<br>
+Convertem um valor de um tipo para outro<br>
+
+- Funções de Data<br>
+Processam datas e horas<br>
+
 - Funções de Expressão Regular<br>
+Utilizam expressões regulares para procurar dados<br>
+
+[Veja todas funções cliquando aqui](Laboratório-de-Banco-de-Dados/Scripts/Script8.sql)<br>
 
 **Funções Agregadas**<br>
+Operam em um grupo de linhas, por isso são conhecidas com funções de grupo.<br>
+Valores nulos são ignorados pelas funções agregadas.<br>
+Funções: *AVG*, *COUNT*, *MAX*, *MIN*, *STDDEV*, *SUM*, *VARIANCE*, etc...<br>
+
+[Veja todas funções cliquando aqui](Laboratório-de-Banco-de-Dados/Scripts/Script9.sql)<br>
 
 **GROUP BY**<br>
+Permite agrupar linhas semelhantes em uma tabela e obter alguma informação sobre esses grupos de linhas.<br>
+Para filtrar grupos de linhas é necessário o uso da clásula HAVING. Sendo inserida posteriormente à cláusula GROUP BY.<br>
+❗WHERE para filtrar grupos de linhas não é possível❗ Porém pode ser utilizando antes do GROUP BY para filtrar linhas da tabela.<br>
+GROUP BY pode ser usada sem HAVING, mas HAVING deve ser usada em conjunto com GROUP BY.<br>
 
-**Manipulação de Datas e Horas**
+Exemplo somente com o *GROUP BY*:<br>
+<pre>
+SELECT id_tipo_produto
+FROM tb_produtos
+GROUP BY id_tipo_produto; 
+</pre>
+
+Exemplo de GROUP BY com a função agregada VARIANCE:<br>
+<pre>
+SELECT id_tipo_produto, VARIANCE(preco)
+FROM tb_produtos
+GROUP BY id_tipo_produto
+ORDER BY id_tipo_produto; 
+</pre>
+
+Exemplo de GROUP BY com HAVING:<br>
+<pre>
+SELECT id_tipo_produto, AVG(preco)
+FROM tb_produtos
+GROUP BY id_tipo_produto
+HAVING AVG(preco) > 20.00; 
+</pre>
+
+Exemplo de WHERE, GROUP BY e HAVING:<br>
+<pre>
+SELECT id_tipo_produto, AVG(preco)
+FROM tb_produtos
+WHERE preco < 15.00
+GROUP BY id_tipo_produto
+HAVING AVG(preco) > 13.00
+ORDER BY id_tipo_produto; 
+</pre>
+
+**Manipulação de Datas e Horas**<br>
+Possibilidade de armazenar e processar data e hora.<br>
+Data/hora é armazenado usando o tipo DATE.<br>
+DATE armazena século, todos os quatro dígitos de um ano, o mês , o dia, a hora, o minuto e o segundo.<br>
+TIMESTAMP armazena igual o DATE, porém pode armazenar frações de segundo e fuso horário.<br>
+Funções: *TO_CHAR*, *TO_DATE*, *ADD_MONTHS*, *LAST_DAY*, *MONTHS_BETWEEN*, *NEXT_DAY*, *ROUND*, etc...<br>
+[Veja todas funções cliquando aqui](Laboratório-de-Banco-de-Dados/Scripts/Script10.sql)<br>
 
 ###
 
