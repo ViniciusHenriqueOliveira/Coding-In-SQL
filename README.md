@@ -242,14 +242,14 @@ SELECT preco, preco * DOBRO_PREÇO
 FROM tb_produtos;
 </pre>
 
-Nota-se que ao utilizar aspas duplas("), preserva-se a caixa de texto do apelido dado a coluna.<br>
+Nota-se que ao utilizar aspas duplas, preserva-se a caixa de texto do apelido dado a coluna.<br>
 <pre>
 SELECT preco, preco * 2 "Dobro do Preço"
 FROM tb_produtos;
 </pre>
 
 **Concatenação**<br>
-Operador de concatenação(||).<br>
+Operador de concatenação( || ).<br>
 
 Exemplo do uso de concatenação:<br>
 <pre>
@@ -342,9 +342,10 @@ WHERE id_cliente IN (2, 3, 5);
 </pre>
 
 - (*BETWEEN*) Corresponde a um intervalo de valores<br>
+<pre>
 SELECT *
 FROM tb_clientes
-WHERE id_cliente BETWEEN 1 AND 3;
+WHERE id_cliente BETWEEN 1 AND 3;    
 </pre>
 
 - (*IS NULL*) Corresponde a valores nulos<br>
@@ -355,13 +356,135 @@ WHERE id_cliente BETWEEN 1 AND 3;
 
 Possibilidade de utilizar *NOT* para inverter o significado de um operador.<br>
 
+**Operadores Lógicos**
+- (x *AND* y) Retorna verdadeiro quando x e y são verdadeiros 
+- (x *OR* y) Retorna verdadeiro quando x ou y são verdadeiros
+- (*NOT* x) Retorna verdade se x for falso e retorna falso se x for verdadeiro
+
+Ordem de precedência:<br>
+1º Parênteses<br>
+2º Operadores de comparação<br>
+3º *AND*<br>
+4º *OR*<br>
+
 **Cláusula ORDER BY**<br>
+Usada para classificar as linhas recuperadas por uma consulta.<br>
+ASC e DESC são palavras-chave que podem ser utilizadas para classificar as colunas em ordem descendente e ascendente, respectivamente. Sendo ASC *Default*.<br>
+
+Exemplo:<br>
+<pre>
+SELECT *
+FROM tb_clientes
+ORDER BY nome ASC, sobrenome DESC;
+</pre>
+
+Um número de posição de coluna na clasúla *ORDER BY* pode ser usado para indicar qual coluna deve ser classificada.<br>
 
 **JOINs**<br>
+Permite obter informações de várias tabelas simultaneamente.<br>
+JOINs podem ser utilizadas para conectar "n" tabelas, lembrando que a quantidade de tabelas - 1 é a quantidade de JOINs necessárias.<br>
+A ausência da condição JOIN promove a união de todas as linhas de uma tabela com todas as linhas da outra tabela, esse conjunto resultante é o Produto cartesiano.<br>
 
-**Variáveis**<br>
+- *INNER JOIN*<br>
+Retornam uma linha somente quando as colunas da *JOIN* contêm valores que satisfazem essa condição(colunaX = colunaY).<br>
+<pre>
+SELECT p.nm_produto AS PRODUTO, tp.nm_tipo_produto AS TIPO
+FROM tb_produtos p
+INNER JOIN tb_tipos_produtos tp ON(p.id_tipo_produto = tp.id_tipo_produto)
+ORDER BY p.nm_produto;
+</pre>
 
-**Relatórios Simples**<br>
+- *OUTER JOIN*<br>
+Retornam uma linha mesmo quando uma das colunas na condição de *JOIN* contém um valor nulo.<br>
+Exemplo de uma *LEFT OUTER JOIN*:<br>
+<pre>
+SELECT p.nm_produto AS produto, tp.nm_tipo_produto AS tipo
+FROM tb_produto p
+LEFT OUTER JOIN tb_tipos_produtos tp ON(p.id_tipo_produto = tp.id_tipo_produto)
+ORDER BY p.nm_produto;
+</pre>
+
+Exemplo de uma *RIGHT OUTER JOIN*:<br>
+<pre>
+SELECT p.nm_produto AS produto, tp.nm_tipo_produto AS tipo
+FROM tb_produto p
+RIGHT OUTER JOIN tb_tipos_produtos tp ON(p.id_tipo_produto = tp.id_tipo_produto)
+ORDER BY p.nm_produto;
+</pre>
+
+EXEMPLO de uma *FULL OUTER JOIN*:<br>
+<pre>
+SELECT p.nm_produto AS produto, tp.nm_tipo_produto AS tipo
+FROM tb_produto p
+FULL OUTER JOIN tb_tipos_produtos tp ON(p.id_tipo_produto = tp.id_tipo_produto)
+ORDER BY p.nm_produto;
+</pre>
+
+- *AUTO-JOIN*<br>
+Retornam linhas unidas na mesma tabela.<br>
+<pre>
+ SELECT f.nome || '' || f.sobrenome || ' trabalha para ' || g.nome
+FROM tb_funcionario f
+INNER JOIN tb_funcionario g ON(f.id_gerente = g.id_funcionario)
+ORDER BY f.nome;   
+</pre>
+
+- NÃO-EQUIJOINS<br>
+Utilizam operadores que não correspondem ao de igualdade(<, >, *BETWEEN*, etc...).<br>
+<pre>
+SELECT f.nome, f.sobrenome, f.cargo, f.salario, gs.id_salario
+FROM tb_funcionarios f
+INNER JOIN tb_grades_salarios gs ON(f.salario BETWEEN gs.base_salario AND gs.teto_salario)
+ORDER BY gs.id_salario;    
+</pre>
+
+- *JOINs* com *USING*<br>
+<pre>
+SELECT c.nome, c.sobrenome, p.nm_produto AS produto,
+       tp_nm_tipo_produto AS tipo
+FROM tb_cliente c
+INNER JOIN tb_compras co USING(id_cliente)
+INNER JOIN tb_produtos p USING(id_produto)
+INNER JOIN tb_tipos_produtos tp USING(id_tipo_produto)
+ORDER BY p.nm_produto;
+</pre>
+
+- *JOIN* CRUZADA<br>
+Utilziando a instrução *CROSS JOIN*, o produto cartesiano deixa de ser acidental.<br>
+<pre>
+SELECT *
+FROM tb_tipos_produtos
+CROSS JOIN tb_produtos
+</pre>
+
+**Variáveis de substituição**<br>
+Criação de variáveis para serem utilizadas no lugar de valores reais(SQL).<br>
+- Variáveis Temporárias<br>
+Sintaxe:<br>
+&identificador_variável<br>
+
+Exemplo de aplicação, onde um pop-up recebe a variável temporária:<br>
+<pre>
+SELECT id_produto, nm_produto, preco
+FROM tb_produtos
+WHERE id_produto = &v_id_produto;
+</pre>
+![image](https://github.com/user-attachments/assets/1164146f-c285-48a7-bbf2-cd503ceb013b)
+
+- Variáveis Definitivas<br>
+Permite a definição da variável antes de sua utilização.<br>
+DEFINE e UNDEFINE são os comandos utilizados para definir e remover a variável.<br>
+
+Exemplo:<br>
+<pre>
+DEFINE v_id_produto = 7;
+    
+SELECT nm_produto, id_produto
+FROM tb_produtos
+WHERE id_produto = &v_id_produto;
+
+UNDEFINE v_id_produto;<br>
+</pre>
 
 **Funções Simples**<br>
 - Funções de Caracteres<br><br>
