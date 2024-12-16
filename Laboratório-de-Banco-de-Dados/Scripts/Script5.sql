@@ -1,4 +1,4 @@
--Função Distinct (suprime as linhas em duplicidade)
+--Função Distinct (suprime as linhas em duplicidade)
 SELECT id_cliente
 FROM tb_compras;
 
