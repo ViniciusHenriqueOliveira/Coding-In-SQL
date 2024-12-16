@@ -47,11 +47,12 @@ WHERE nome LIKE '____';
 
 SELECT *
 FROM tb_promocao
-WHERE nome LIKE '%\%%' ESCAPE '\';
+WHERE nome LIKE '%\%%' ESCAPE '\' ;
 
+--Operador IN
 SELECT *
 FROM tb_clientes
-WHERE id_cliente IN(2,3,5);--Operador IN
+WHERE id_cliente IN(2,3,5);
 
 SELECT *
 FROM tb_clientes
