@@ -134,50 +134,86 @@ UPDATE tb_clientes
 SET sobrenome = 'Orange'
 WHERE id_cliente = 2;
 </pre>
-PL/SQL<br>
+
+**PL/SQL**<br>
+Linguagem procedural da Oracle.<br>
+Permite adicionar programação em torno de instruções SQL.<br>
+Usado principalmente para criação de procedures e functions em um BD.<br>
+
+Exemplo de uma procedure que localizada e o ID do cliente e exibe uma mensagem:<br>
+Utilza-se a intrução *CALL*, para invocar a procedure.<br>
+<pre>
+CREATE OR REPLACE PROCEDURE get_cliente(p_id_cliente IN tb_clientes.id_cliente%TYPE)
+AS
+v_nome          tb_clientes.nome%TYPE;
+v_sobrenome     tb_clientes.sobrenome%TYPE;
+v_controle      INTEGER;
+
+BEGIN
+ SELECT COUNT(*)INTO v_controle
+  FROM tb_clientes
+  WHERE id_cliente = p_id_cliente;
+  
+IF(v_controle = 1) THEN
+    SELECT nome, sobrenome INTO v_nome, v_sobrenome
+    FROM tb_clientes
+    WHERE id_cliente = p_id_cliente;
+    
+    DBMS_OUTPUT.PUT_LINE('Cliente localizado: '||v_nome||' '||v_sobrenome);
+
+ELSE
+    DBMS_OUTPUT.PUT_LINE('Cliente NÃO localizado');
+END IF;
+
+EXCEPTION
+ WHEN OTHERS THEN
+  DBMS_OUTPUT.PUT_LINE('Erro');
+  
+END get_cliente;
+</pre>
 
 **Ordem de execução de uma Querie***<br>
 ![QueryExecutionOrder](https://github.com/user-attachments/assets/8c145952-8e94-43c7-b314-e554c62eb9cc)
 
-Identificadores de Linha<br>
+**Identificadores de Linha**<br>
 
-Números de Linha<br>
+**Números de Linha**<br>
 
-Cálculos Aritméticos<br>
+**Cálculos Aritméticos**<br>
 
-Tabela *Dual*<br>
+**Tabela *Dual***<br>
 
-Apelido(*Alias*)<br>
+**Apelido(*Alias*)**<br>
 
-Concatenação<br>
+**Concatenação**<br>
 
-Valores Nulos(*NULL*)<br>
+**Valores Nulos(*NULL*)**<br>
 
-Linhas Distintas(*Distinct/)<br>
+**Linhas Distintas(*Distinct*)**<br>
 
-Comparação de Valores<br>
+**Comparação de Valores**<br>
 
-Operadores SQL<br>
+**Operadores SQL**<br>
 
-Cláusula ORDER BY<br>
+**Cláusula ORDER BY**<br>
 
-JOINs<br>
+**JOINs**<br>
 
-Variáveis<br>
+**Variáveis**<br>
 
-Relatórios Simples<br>
+**Relatórios Simples**<br>
 
-Funções Simples<br>
+**Funções Simples**<br>
 - Funções de Caracteres<br><br>
 - Funções Numéricas<br><br>
 - Funções de Conversão<br><br>
 - Funções de Expressão Regular<br>
 
-Funções Agregadas<br>
+**Funções Agregadas**<br>
 
-GROUP BY<br>
+**GROUP BY**<br>
 
-Manipulação de Datas e Horas
+**Manipulação de Datas e Horas**
 
 ###
 
